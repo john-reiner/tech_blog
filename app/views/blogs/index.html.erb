@@ -1,8 +1,8 @@
 <h1>Welcome to the home page!</h1>
-
+<%= link_to  "All Topics", technology_topics_path %>
 <% @blogs.each do |blog| %>
     <hr>
-    <h2><%= blog.name %></h2>
-    <h4><%= blog.technology_topic.name %></h4>
+    <h2><%= link_to  blog.name, blog_path(blog) %></h2>
+    <h4><%= link_to blog.technology_topic.name, technology_topic_path(blog.technology_topic.id) %></h4>
     <p><%= blog.body %></p>
 <% end %>
