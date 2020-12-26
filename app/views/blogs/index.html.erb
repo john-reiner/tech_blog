@@ -3,5 +3,6 @@
 <% @blogs.each do |blog| %>
     <hr>
     <h2><%= blog.name %></h2>
+    <h4><%= blog.technology_topic.name %></h4>
     <p><%= blog.body %></p>
 <% end %>
