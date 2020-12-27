@@ -1,7 +1,8 @@
 <h1><%= @technology.name %></h1>
-
+<%= link_to  "Home", root_path %>
+<br><br>
 <% @technology.blogs.each do |blog|%>
-    <br>
+    <hr>
     <%= link_to  blog.name, blog_path(blog.id) %>
 
 

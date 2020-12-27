@@ -13,6 +13,6 @@ require 'faker'
 end
 
 25.times do 
-    Blog.create!(name: Faker::Music.album, body: Faker::Lorem.paragraph(sentence_count: 20), technology_topic_id: rand(1..10))
+    Blog.create!(name: Faker::Movies::HarryPotter.character, body: Faker::Lorem.paragraph(sentence_count: 20), technology_topic_id: rand(1..10))
 end
 
