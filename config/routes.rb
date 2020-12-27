@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root 'blogs#index'
 
-
-
+  get 'sessions/new', to: 'sessions#new', as: 'new_login'
+  post 'sessions', to: 'sessions#create', as: 'login'
+  delete 'sessions', to: 'sessions#destroy', as: "destroy_session"
 end
