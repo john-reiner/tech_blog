@@ -1,2 +1,5 @@
 <h1>All Techs</h1>
-<%= link_to  "Home", root_path %>
+
+<% @technologies.each do |tech| %>
+    <p><%= link_to  tech.name, technology_topic_path(tech.id) %></p>
+<% end %>

@@ -1,5 +1,15 @@
+
 <h1><%= @blog.name %></h1>
+<p>Published by: <%= @blog.user.username %></p>
 <h2><%= @blog.technology_topic.name %></h2>
 <p> <%= @blog.body %></p>
+<hr>
 
-<%= link_to  "All Blogs", blogs_path %>
+<%= render  "comments/form" %>
+<% @comments.each do |comment| %>
+
+    <h4><%= comment %></h4>
+    <p><%= comment.body%></p>
+    <hr>
+<% end %>
+

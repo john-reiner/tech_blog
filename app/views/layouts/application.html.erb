@@ -8,8 +8,55 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+  <%# navbar start %>
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <% if @current_user %>
+        <p class="navbar-brand col-sm-3 col-md-2 mr-0" ><%= @current_user.username %> Tech Blog</p>
+      <% else %>
+        <p class="navbar-brand col-sm-3 col-md-2 mr-0" >Your Tech Blog </p>
+      <% end %>
+      
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+        
+        <% if  @current_user %>
+          <%= link_to  "Home", root_path, class: "nav-link" %>
+        <% else %>
+          <%= link_to  "Sign In", new_user_path, class: "nav-link" %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+  <%# navbar end  %>
+
+  <%# body start %>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <%= link_to  "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to  "All Techs", technology_topics_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to  "Create a Blog", new_blog_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <%= yield %>
+      </main>
+    </div>
+  </div>
+
   </body>
 </html>
