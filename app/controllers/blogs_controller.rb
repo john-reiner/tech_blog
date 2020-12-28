@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
 
+    skip_before_action :logged_in, only: [:index, :show]
+
     def index
         @blogs = Blog.all
     end
@@ -14,7 +16,8 @@ class BlogsController < ApplicationController
     end
 
     def create
-        @blog = Blog.new(blog_params)
+        # byebug
+        @blog = Blog.create!(name: params[:blog][:name], body: params[:blog][:body], user_id: @current_user.id, technology_topic_id: params[:blog][:technology_topic_id])
 
         if @blog.save 
             redirect_to @blog 
