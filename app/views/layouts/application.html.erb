@@ -12,7 +12,7 @@
   <%# navbar start %>
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <% if @current_user %>
-        <p class="navbar-brand col-sm-3 col-md-2 mr-0" ><%= @current_user.username %> Tech Blog</p>
+        <p class="navbar-brand col-sm-3 col-md-2 mr-0" ><%= link_to  @current_user.username + "'s", user_path(@current_user) %> Tech Blog</p>
       <% else %>
         <p class="navbar-brand col-sm-3 col-md-2 mr-0" >Your Tech Blog </p>
       <% end %>

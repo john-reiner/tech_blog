@@ -1,1 +1,14 @@
 <h1><%= @user.username %></h1>
+
+<h2>My Blogs</h2>
+<% @user.blogs.each do |blog| %>
+
+    <p><%= blog.name %></p>
+
+<% end %>
+
+<h2>My Technologies</h2>
+
+<% @user.technology_topics.each do |topic| %>
+    <p><%= topic.name %></p>
+<% end %>

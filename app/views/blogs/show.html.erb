@@ -1,6 +1,6 @@
 
 <h1><%= @blog.name %></h1>
-<p>Published by: <%= @blog.user.username %></p>
+<p>Published by: <%= link_to  @blog.user.username, user_path(@blog.user.id) %></p>
 <h2><%= @blog.technology_topic.name %></h2>
 <p> <%= @blog.body %></p>
 <hr>
