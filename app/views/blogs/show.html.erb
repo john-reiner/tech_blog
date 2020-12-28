@@ -6,10 +6,6 @@
 <hr>
 
 <%= render  "comments/form" %>
-<% @comments.each do |comment| %>
-
-    <h4><%= comment %></h4>
-    <p><%= comment.body%></p>
-    <hr>
-<% end %>
+<%# <% byebug %>
+<%= render  @blog.comments %>
 
