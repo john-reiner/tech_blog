@@ -17,6 +17,11 @@
         <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
 
+    <div class="form-group">
+        <%= f.label :profile_picture %>
+        <%= f.file_field :profile_picture, class: "form-control" %>
+    </div>
+
     <div>
         <%= f.submit 'New User', class: "btn btn-outline-secondary" %>
     </div>

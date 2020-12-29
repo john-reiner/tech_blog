@@ -1,5 +1,12 @@
 <h1><%= @user.username %></h1>
 
+<% if @user.profile_picture.attached? %>
+
+    <%= image_tag(@user.profile_picture) %>
+<% else %>
+    <%= image_tag("users/default_image.webp") %>
+<% end %>
+
 <h2>My Blogs</h2>
 <% @user.blogs.each do |blog| %>
 
