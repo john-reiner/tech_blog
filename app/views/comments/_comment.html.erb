@@ -1,6 +1,7 @@
 
 
-<p><%= comment.user.username unless comment.user.blank? %></p>
+<p>Posted by: <%= link_to comment.user.username unless comment.user.blank? %> at: <%= comment.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
+
 <p><%= comment.body%></p>
 
 <hr>

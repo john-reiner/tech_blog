@@ -2,7 +2,7 @@
 <%= form_for([@blog, @blog.comments.build]) do |f| %>
 
     <div class="form-group">
-        <%= f.label :body %>
+        <%= f.label "Comment" %>
         <%= f.text_area :body, class: "form-control" %>
     </div>
 

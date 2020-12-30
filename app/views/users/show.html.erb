@@ -7,6 +7,21 @@
     <%= image_tag("users/default_image.webp") %>
 <% end %>
 
+    <h2>Bio:</h2>
+    <p><%= @user.bio %></p>
+
+    <h2>My Technologies</h2>
+        <% @user.technology_topics.each do |topic| %>
+        <p><%= topic.name %></p>
+    <% end %>
+
+
+<% if @current_user == @user %>
+    <%= link_to  "Edit Profile", edit_user_path(@current_user), class: "btn btn-outline-secondary" %>
+<% end %>
+
+
+
 <h2>My Blogs</h2>
 <% @user.blogs.each do |blog| %>
 
@@ -14,8 +29,6 @@
 
 <% end %>
 
-<h2>My Technologies</h2>
 
-<% @user.technology_topics.each do |topic| %>
-    <p><%= topic.name %></p>
-<% end %>
+
+

@@ -6,6 +6,6 @@
 <hr>
 
 <%= render  "comments/form" %>
-<%# <% byebug %>
+
 <%= render  @blog.comments.order("created_at DESC") %>
 
