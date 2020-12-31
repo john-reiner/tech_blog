@@ -1,9 +1,28 @@
+<div class="row">
 
-<% @blogs.each do |blog| %>
-    <h2><%= link_to  blog.name, blog_path(blog) %></h2>
-    <h6><%= link_to blog.technology_topic.name, technology_topic_path(blog.technology_topic.id) %></h6>
-    <p>Published: <%= blog.created_at.to_date.to_formatted_s(:long_ordinal) %>, By: <%= link_to blog.user.username, user_path(blog.user) %></p>
-    <p><%= blog.body %></p>
-    <hr>
+        <div class="col">
+            <h2><%= link_to  @first_blog.name, blog_path(@first_blog) %></h2>
+            <h6><%= link_to @first_blog.technology_topic.name, technology_topic_path(@first_blog.technology_topic.id) %></h6>
+            <p>Published: <%= @first_blog.created_at.to_date.to_formatted_s(:long_ordinal) %>, By: <%= link_to @first_blog.user.username, user_path(@first_blog.user) %></p>
+            <p><%= @first_blog.body %></p>
+        </div>
 
-<% end %>
+        <div class="col">
+        <%# 2 %>
+            <% @blogs.each do |blog| %>
+                <h2><%= link_to  blog.name, blog_path(blog) %></h2>
+                <h6><%= link_to blog.technology_topic.name, technology_topic_path(blog.technology_topic.id) %></h6>
+                <p>Published: <%= blog.created_at.to_date.to_formatted_s(:long_ordinal) %>, By: <%= link_to blog.user.username, user_path(blog.user) %></p>
+                <p><%= blog.body %></p>
+
+            <% end %>
+        </div>
+
+        <div class="col">
+        <%# 3 %>
+        </div>
+</div>
+
+<hr>
+
+

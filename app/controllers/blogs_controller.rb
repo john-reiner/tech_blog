@@ -3,7 +3,9 @@ class BlogsController < ApplicationController
     skip_before_action :logged_in, only: [:index, :show]
 
     def index
-        @blogs = Blog.all.order("created_at DESC")
+        @first_blog = Blog.first
+        @blogs = Blog.all.order('created_at DESC')[1..4]
+
     end
 
     def show

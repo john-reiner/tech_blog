@@ -1,10 +1,9 @@
 <h1><%= @user.username %></h1>
 
-<% if @user.profile_picture.attached? %>
-
-    <%= image_tag(@user.profile_picture) %>
+<% if  @user.profile_picture.attached? %>
+    <%= image_tag(@user.profile_picture, width: 250, height: 250) %> 
 <% else %>
-    <%= image_tag("users/default_image.webp") %>
+    <%= image_tag('default_image.webp', width: 250, height: 250) %> 
 <% end %>
 
     <h2>Bio:</h2>
