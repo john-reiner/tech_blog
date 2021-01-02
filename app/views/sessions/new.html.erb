@@ -1,27 +1,33 @@
-<div class="container text-center">
-    <div class="form-signin">
-        <%= image_tag("logo.svg", height: 100, width: 100, :class => "mb-4") %>
-        <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
-        <%= form_for :session, url: login_path do |f| %>
+<div class="row justify-content-around">
 
-            <div class="form-group">
-                <%= f.label :username, "Username", class: "sr-only" %>
-                <%= f.text_field :username, class: "form-control" %>    
-            </div>
+    <div class="col-5 text-center">
 
-            <div class="form-group">
-                <%= f.label :password, class: "sr-only"  %>
-                <%= f.password_field :password, class: "form-control" %>
-            </div>
+            <%= image_tag("logo.svg", height: 100, width: 100, :class => "mb-4") %>
+            <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+            
+            <%= form_for :session, url: login_path, :html => {:class => 'form-signin'}  do |f| %>
 
-            <div>
-                <%= f.submit 'Login', class: "btn btn-outline-secondary" %>
-            </div>
+                <div class="form-group">
+                    <%= f.label :username, "Username", class: "sr-only" %>
+                    <%= f.text_field :username, class: "form-control" %>    
+                </div>
 
-        <% end %>
-        <br>
+                <div class="form-group">
+                    <%= f.label :password, class: "sr-only"  %>
+                    <%= f.password_field :password, class: "form-control" %>
+                </div>
 
-        <%= link_to  "Sign Up", new_user_path , class: "btn btn-outline-secondary" %>
+                <div>
+                    <%= f.submit 'Login', class: "btn btn-lg btn-primary btn-block" %>
+                </div>
 
+            <% end %>
+            <br>
+            <%= link_to  "Sign Up", new_user_path , class: "btn btn-lg btn-secondary btn-block" %>
+
+    </div>
+
+    <div class="col-5">
+        <%= image_tag('signin.jpg', :class => 'img-fluid') %>
     </div>
 </div>
