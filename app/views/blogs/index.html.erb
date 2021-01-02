@@ -1,25 +1,42 @@
 <div class="row">
 
         <div class="col">
+
+            <% if @first_blog.main_pic == nil %>
+                <%= image_tag('logo.svg', height: 350, width: 350) %>
+            <% else %>
+                <%= image_tag(@first_blog.main_pic) %>
+            <% end %>
+
             <h2><%= link_to  @first_blog.name, blog_path(@first_blog) %></h2>
             <h6><%= link_to @first_blog.technology_topic.name, technology_topic_path(@first_blog.technology_topic.id) %></h6>
             <p>Published: <%= @first_blog.created_at.to_date.to_formatted_s(:long_ordinal) %>, By: <%= link_to @first_blog.user.username, user_path(@first_blog.user) %></p>
-            <p><%= @first_blog.body %></p>
         </div>
 
-        <div class="col">
+        <div class="col d-flex align-content-between flex-wrap" id="top-blogs">
         <%# 2 %>
-            <% @blogs.each do |blog| %>
-                <h2><%= link_to  blog.name, blog_path(blog) %></h2>
-                <h6><%= link_to blog.technology_topic.name, technology_topic_path(blog.technology_topic.id) %></h6>
-                <p>Published: <%= blog.created_at.to_date.to_formatted_s(:long_ordinal) %>, By: <%= link_to blog.user.username, user_path(blog.user) %></p>
-                <p><%= blog.body %></p>
+                <% @blogs.each do |blog| %>
+                    
+                    <div class="media">
 
-            <% end %>
+                            <% if @first_blog.main_pic == nil %>
+                                <%= image_tag('logo.svg', height: 64, width: 64, :class => "mr-3") %>
+                            <% else %>
+                                <%= image_tag(@first_blog.main_pic, :class => "mr-3") %>
+                            <% end %>
+
+                        <div class="media-body">
+                            <h6><%= blog.user.username %></h6>
+                            <h5 class="mt-0"><%= link_to  blog.name, blog_path(blog) %></h5>
+                            <p><%= blog.created_at.to_date.to_formatted_s(:long) %></p>
+                        </div>
+                    </div>
+                <% end %>              
+            
         </div>
 
         <div class="col">
-        <%# 3 %>
+            <h2 class="mx-auto" style="width: 100%;" >Programmers</h2>
         </div>
 </div>
 
