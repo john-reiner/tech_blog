@@ -1,33 +1,51 @@
-<h1><%= @user.username %></h1>
-
-<% if  @user.profile_picture.attached? %>
-    <%= image_tag(@user.profile_picture, width: 250, height: 250) %> 
-<% else %>
-    <%= image_tag('default_image.webp', width: 250, height: 250) %> 
-<% end %>
-
-    <h2>Bio:</h2>
-    <p><%= @user.bio %></p>
-
-    <h2>My Technologies</h2>
-        <% @user.technology_topics.each do |topic| %>
-        <p><%= topic.name %></p>
-    <% end %>
 
 
-<% if @current_user == @user %>
-    <%= link_to  "Edit Profile", edit_user_path(@current_user), class: "btn btn-outline-secondary" %>
-<% end %>
+<%= image_tag('default_banner.jpg', :id => "banner") %>
 
 
 
-<h2>My Blogs</h2>
-<% @user.blogs.each do |blog| %>
+<div class="container">
 
-    <p><%= blog.name %></p>
+    <div class="row">
+        <div class="col-4" id="user-info">
 
-<% end %>
+            <% if  @user.profile_picture.attached? %>
+                <%= image_tag(@user.profile_picture, width: 250, height: 250) %> 
+            <% else %>
+                <%= image_tag('default_image.webp', width: 250, height: 250, :class => 'rounded-circle') %> 
+            <% end %>
 
+            <h1><%= @user.username %></h1>
 
+            <%# <h2>Bio:</h2> %>
+            <p><%= @user.bio %></p>
 
+            <h2>My Technologies</h2>
+                <% @user.technology_topics.each do |topic| %>
+                <p><%= topic.name %></p>
+            <% end %>
 
+            <% if @current_user == @user %>
+                <%= link_to  "Edit Profile", edit_user_path(@current_user), class: "btn btn-outline-secondary" %>
+            <% end %>
+        </div>
+
+        <div class="col-8">
+            <div class="card-columns">
+                <% @user.blogs.each do |blog| %>
+
+                    <div class="card">
+                        <%= image_tag('logo.svg', :class => 'card-img-top') %>
+                        
+                        <div class="card-body">
+                        <h5 class="card-title"><%= link_to  blog.name, blog_path(blog) %></h5>
+                        <p class="card-text"><small class="text-muted">Published: <%= blog.created_at.to_date.to_formatted_s(:long) %></small></p>
+                        </div>
+                    </div>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+</div>
